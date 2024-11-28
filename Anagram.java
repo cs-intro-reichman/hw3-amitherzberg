@@ -69,6 +69,9 @@ public class Anagram {
 			if ((int)c >= 65 && (int)c <= 90){
 				newStr += (char)(int)(c+32);
 			}
+			if (c == ' '){ 
+				newStr += ' ';
+			} 
 		}
 		return newStr;
 	} 
