@@ -34,19 +34,36 @@ public class Anagram {
 		String new2 = preProcess(str2);
 		char letter1;
 
-		if (new1.length() != new2.length()){
+		String new1WhithoutSpaces = "";
+
+		for(int i = 0; i < new1.length(); i++){
+			if(new1.charAt(i) != ' '){
+				new1WhithoutSpaces = new1WhithoutSpaces.concat(String.valueOf(new1.charAt(i)));
+			}
+		}
+
+		String new2WhithoutSpaces = "";
+
+		for(int i = 0; i < new2.length(); i++){
+			if(new2.charAt(i) != ' '){
+				new2WhithoutSpaces = new2WhithoutSpaces.concat(String.valueOf(new2.charAt(i)));
+			}
+		}
+
+
+		if (new1WhithoutSpaces.length() != new2WhithoutSpaces.length()){
 			return false;
 		}
-		for (int i = 0; i < new1.length(); i++) {
-			letter1 = new1.charAt(i);
-			for (int j = 0; j < new2.length(); j++) {
-				if (letter1 == new2.charAt(j)){
-					new2 = new2.substring(0, j) + new2.substring(j+1, new2.length());
+		for (int i = 0; i < new1WhithoutSpaces.length(); i++) {
+			letter1 = new1WhithoutSpaces.charAt(i);
+			for (int j = 0; j < new2WhithoutSpaces.length(); j++) {
+				if (letter1 == new2WhithoutSpaces.charAt(j)){
+					new2WhithoutSpaces = new2WhithoutSpaces.substring(0, j) + new2WhithoutSpaces.substring(j+1, new2WhithoutSpaces.length());
 					break;
 				}
 			}
 		}
-		if (new2.length() == 0){
+		if (new2WhithoutSpaces.length() == 0){
 			return true;
 		} 
 
